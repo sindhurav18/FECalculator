@@ -43,7 +43,7 @@ $scope.convertFrom = function(){
 var fromVal = $scope.fromValue
 var toVal = $scope.toValue
 
-if(toVal==0 && fromVal==null)
+if(toVal==null && fromVal==null)
 {
 $scope.message="";
 }
