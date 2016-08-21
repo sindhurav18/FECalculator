@@ -38,30 +38,45 @@ angular.module('feCalculator', [])
     ];
 
 
-
-
 $scope.convertFrom = function(){
 
 var fromVal = $scope.fromValue
-if(fromVal>=0)
+var toVal = $scope.toValue
+
+if(toVal==0 && fromVal==null)
 {
+$scope.message="";
+}
+else if((toVal==null || toVal>=0)&&(fromVal>=0))
+{
+
 $scope.message="";
 $scope.toValue = $scope.fromValue * ($scope.target.value* (1 / $scope.source.value));
 $scope.toValue = $scope.toValue;
 }
+else if((fromVal==null || fromVal>=0)&&(toVal>=0))
+
+{
+
+$scope.message="";
+$scope.fromValue = $scope.toValue * ($scope.source.value* (1 / $scope.target.value));
+$scope.fromValue = $scope.fromValue;
+
+}
+
 else
 {
     $scope.message="Please enter valid amount";
 }
 
+};
 
 
-	};
 
 $scope.convertTo= function(){
-
+console.log("second text");
 var toVal = $scope.toValue
-if(toVal>=0 )
+if(toVal>=0 || toVal==null)
 {
 $scope.message="";
 $scope.fromValue = $scope.toValue * ($scope.source.value* (1 / $scope.target.value));
@@ -72,7 +87,7 @@ else
     $scope.message="Please enter valid amount";
 }
 
-	};
+};
 
 }]);
 
